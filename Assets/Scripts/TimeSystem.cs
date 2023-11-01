@@ -112,19 +112,11 @@ public class TimeSystem : MonoBehaviour
         
         if(hourHand != null && minutehand != null)
         {
-
-
             _minute += _timeSpeed * Time.deltaTime;
             _am.IncreaseFatigue(0.08f * _timeSpeed* Time.deltaTime );
             _am.DropHappiness(0.05f * _timeSpeed* Time.deltaTime);
 
-
-
             ChangeAttribute();
-
-
-
-
 
             if (_minute > 60)
             {
@@ -136,19 +128,12 @@ public class TimeSystem : MonoBehaviour
             if(_hour >= 24)
             {
                 _hour = 8;
-                GoNextDay();
-
-                //reload scene, go to next day
-
+                GoNextDay(); //reload scene, go to next day
             }
 
-
-
+            //Update Clock UI
             hourHand.transform.localEulerAngles = -rotationVector * ((_hour + (_minute / 60)) / 12) * 360;
             minutehand.transform.localEulerAngles = -rotationVector * (_minute / 60 * 360 )  ;
-
-
-
         }
 
 
